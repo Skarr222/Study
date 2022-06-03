@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 
+/*
 int main()
 {
     while (true)
@@ -20,3 +21,4 @@ int main()
     }
     std::cout << "Thank you!" << std::endl;
 }
+*/
