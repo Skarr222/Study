@@ -14,3 +14,15 @@ int main()
     std::cout << g << " " << function() << std::endl;
 }
 */
+
+int add(int i1, int i2)
+{
+    int i = i1 + i2;
+    return i;
+}
+int main()
+{
+    int v = 3;
+    const int c = 5;
+    std::cout << add(v, v) << " " << add(c, c) << " " << add(7, 7) << std::endl;
+}
