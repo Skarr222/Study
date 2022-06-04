@@ -21,9 +21,11 @@ int main()
 int add(int i1, int i2)
 {
     int i = i1 + i2;
-    return i;                   Better practice would be
+    return i;
 }
-*/
+Better pratctice would be : */
+
+/*
 int add(const int &i1, const int &i2)
 {
     int i = i1 + i2;
@@ -37,3 +39,4 @@ int main()
               << add(c, c) << " "
               << add(7, 7) << std::endl;
 }
+*/
