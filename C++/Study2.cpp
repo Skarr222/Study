@@ -40,3 +40,6 @@ int main()
               << add(7, 7) << std::endl;
 }
 */
+int main()
+{
+}
