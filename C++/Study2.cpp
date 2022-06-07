@@ -42,4 +42,5 @@ int main()
 */
 int main()
 {
+    x = 3
 }
