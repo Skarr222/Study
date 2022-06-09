@@ -42,5 +42,9 @@ int main()
 */
 int main()
 {
-    x = 3
+    for (char c; std::cin >> c;)
+    {
+        std::cout << int(c) << "";
+    }
+    std::cout << std::endl;
 }
