@@ -40,6 +40,8 @@ int main()
               << add(7, 7) << std::endl;
 }
 */
+
+/*
 int main()
 {
     for (char c; std::cin >> c;)
@@ -48,3 +50,4 @@ int main()
     }
     std::cout << std::endl;
 }
+*/
