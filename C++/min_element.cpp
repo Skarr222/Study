@@ -1,12 +1,12 @@
 #include <vector>
 #include <iostream>
 
-std::vector<int>::iterator min_element(std::vector<int>::iterator b, std::vector<int>::iterator e)
+std::vector<int>::iterator min_element(std::vector<int>::iterator x, std::vector<int>::iterator y)
 {
-    while (b < e)
+    while (x < y)
     {
-        auto min = b;
-        for (auto iterator = b; iterator < e; ++iterator)
+        auto min = x;
+        for (auto iterator = x; iterator < y; ++iterator)
         {
             if (*iterator < *min)
             {
@@ -18,12 +18,12 @@ std::vector<int>::iterator min_element(std::vector<int>::iterator b, std::vector
     }
 }
 
-std::vector<int>::const_iterator min_element(std::vector<int>::const_iterator b, std::vector<int>::const_iterator e)
+std::vector<int>::const_iterator min_element(std::vector<int>::const_iterator x, std::vector<int>::const_iterator y)
 {
-    while (b < e)
+    while (x < y)
     {
-        auto min = b;
-        for (auto iterator = b; iterator < e; ++iterator)
+        auto min = x;
+        for (auto iterator = x; iterator < y; ++iterator)
         {
             if (*iterator < *min)
             {
