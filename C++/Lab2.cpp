@@ -19,11 +19,18 @@ int main()
     }
 }
 */
-
+/*
 int main()
 {
     double value;
-    std::cin >> value;
+    double value2;
+    while (std::cin >> value)
+    {
+        std::cin >> value2;
+        std::cout << value + value2 << std::endl;
+    }
+    /*
     bool result = bool(std::cin >> value);
     std::cout << std::boolalpha << result << std::endl;
-}
+
+}*/
