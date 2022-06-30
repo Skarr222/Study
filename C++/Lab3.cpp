@@ -18,11 +18,12 @@ int main()
     std::cout << s << " " << l << std::endl;
 }*/
 
-void bubble_sort(std::vector<int> v)
+void bubble_sort(std::vector<int> &v)
 {
     bool unordered;
     do
     {
+        unordered = false;
         for (int i = 0; i < v.size() - 1; ++i)
         {
             if (v[i] > v[i + 1])
@@ -33,12 +34,13 @@ void bubble_sort(std::vector<int> v)
                 unordered = true;
             }
         }
-    } while (unordered)
+    } while (unordered);
 }
 
 int main()
 {
     std::vector<int> v;
+
     for (int x; std::cin >> x;)
     {
         v.push_back(x);
