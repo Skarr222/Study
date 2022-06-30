@@ -18,6 +18,24 @@ int main()
     std::cout << s << " " << l << std::endl;
 }*/
 
+void bubble_sort(std::vector<int> v)
+{
+    bool unordered;
+    do
+    {
+        for (int i = 0; i < v.size() - 1; ++i)
+        {
+            if (v[i] > v[i + 1])
+            {
+                int x = v[i];
+                v[i] = v[i + 1];
+                v[i + 1] = x;
+                unordered = true;
+            }
+        }
+    } while (unordered)
+}
+
 int main()
 {
     std::vector<int> v;
@@ -25,6 +43,9 @@ int main()
     {
         v.push_back(x);
     }
+
+    bubble_sort(v);
+
     for (int i = 0; i < v.size(); ++i)
     {
         std::cout << v[i] << "";
