@@ -1,25 +1,23 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-std::vector<int>::iterator partial_sum(std::vector<int>::const_iterator b, std::vector<int>::const_iterator e, std::vector<int>::iterator f)
+std::vector<int>::iterator partial_sum(std::vector<int>::const_iterator x, std::vector<int>::const_iterator y, std::vector<int>::iterator z)
 {
 
-    vector<int> vector = {};
+    std::vector<int> vector = {};
 
     int sum = 0;
 
-    while (b < e)
+    while (x < y)
     {
 
-        sum += *b;
-        *f = sum;
-        ++b;
-        f++;
+        sum += *x;
+        *z = sum;
+        ++x;
+        z++;
     }
 
-    return f;
+    return z;
 }
 
 int main()
