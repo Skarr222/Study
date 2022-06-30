@@ -66,6 +66,9 @@ int main()
     int computer = std::rand() % 2 * 2 - 1, player;
     std::cin >> player;
     std::cout << computer << std::endl;
+
+    std::cout << (0 < computer * player ? "true" : "false") << std::endl;
+    /*
     if (0 < computer * player)
     {
         std::cout << "true" << std::endl;
@@ -74,4 +77,5 @@ int main()
     {
         std::cout << "false" << std::endl;
     }
+    */
 }
