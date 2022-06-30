@@ -1,5 +1,7 @@
 #include <cmath>
 #include <iostream>
+#include <cstdlib>
+
 /*
 const double pi = 4. * std::atan(1.);
 
@@ -55,7 +57,9 @@ int main()
         std::cout << "Invalid figure" << std::endl;
     }
 }
-/*
+*/
 
-
-
+int main()
+{
+    std::cout << std::rand() << std::endl;
+}
