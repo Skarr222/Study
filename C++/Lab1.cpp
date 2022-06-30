@@ -1,6 +1,7 @@
 #include <cmath>
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 
 /*
 const double pi = 4. * std::atan(1.);
@@ -61,5 +62,16 @@ int main()
 
 int main()
 {
-    std::cout << std::rand() << std::endl;
+    std::srand(std::time(0));
+    int computer = std::rand() % 2 * 2 - 1, player;
+    std::cin >> player;
+    std::cout << computer << std::endl;
+    if (0 < computer * player)
+    {
+        std::cout << "true" << std::endl;
+    }
+    else
+    {
+        std::cout << "false" << std::endl;
+    }
 }
