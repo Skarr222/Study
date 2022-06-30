@@ -23,6 +23,11 @@ int main()
     std::vector<int> v;
     for (int x; std::cin >> x;)
     {
-        v.push_back(x)
+        v.push_back(x);
     }
+    for (int i = 0; i < v.size(); ++i)
+    {
+        std::cout << v[i] << "";
+    }
+    std::cout << std::endl;
 }
