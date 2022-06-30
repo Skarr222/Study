@@ -2,6 +2,7 @@
 #include <ctime>
 #include <iostream>
 
+/*
 int main()
 {
     std::srand(std::time(nullptr));
@@ -16,4 +17,13 @@ int main()
             std::cin >> u;
         } while (u != a * b);
     }
+}
+*/
+
+int main()
+{
+    double value;
+    std::cin >> value;
+    bool result = bool(std::cin >> value);
+    std::cout << std::boolalpha << result << std::endl;
 }
