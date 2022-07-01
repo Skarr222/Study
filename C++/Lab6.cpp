@@ -30,9 +30,24 @@ int main()
 }
 */
 
+void remove(std::vector<int> &v)
+{
+    auto j = v.begin();
+    for (auto i = v.begin(); i < v.end(); ++i)
+    {
+        if (*i != 2)
+        {
+            *j++ = *i;
+        }
+    }
+}
+
 int main()
 {
-    std::vector<int> v{-7, 6, 2, 2, 11, 2, 3};
+    std::vector<int> v{-7, 5, 2, 2, 11, 2, 3};
+
+    v.erase(j, v.end());
+
     for (auto i = v.begin(); i < v.end();)
     {
         std::cout << *i++ << " ";
