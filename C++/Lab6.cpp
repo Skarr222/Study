@@ -4,9 +4,9 @@
 
 void selection_sort(std::vector<int>::iterator b, std::vector<int>::iterator e)
 {
-    for (b; j < e;)
+    while (b < e)
     {
-        std::vector<int>::iterator m = b;
+        auto m = b;
         for (std::vector<int>::iterator i = b; ++i < e;)
         {
             if (*i < *m)
@@ -14,7 +14,7 @@ void selection_sort(std::vector<int>::iterator b, std::vector<int>::iterator e)
                 m = i;
             }
         }
-        std::iter_swap(b++, *m);
+        std::iter_swap(b++, m);
     }
 }
 
