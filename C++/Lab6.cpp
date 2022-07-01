@@ -30,23 +30,22 @@ int main()
 }
 */
 
-std::vector<int>::iterator remove(std::vector<int> &v)
+std::vector<int>::iterator remove(std::vector<int>::iterator b, std::vector<int>::iterator e, int n)
 {
-    auto j = v.begin();
-    for (auto i = v.begin(); i < v.end(); ++i)
+    for (auto i = b; i < e; ++i)
     {
-        if (*i != 2)
+        if (*i != n)
         {
-            *j++ = *i;
+            *b++ = *i;
         }
     }
-    return j;
+    return b;
 }
 
 int main()
 {
     std::vector<int> v{-7, 5, 2, 2, 11, 2, 3};
-    auto j = remove(v);
+    auto j = remove(v.begin(), v.end());
     v.erase(j, v.end());
     for (auto i = v.begin(); i < v.end();)
     {
