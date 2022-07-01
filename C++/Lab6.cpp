@@ -4,17 +4,17 @@
 
 void selection_sort(std::vector<int>::iterator b, std::vector<int>::iterator e)
 {
-    for (std::vector<int>::iterator j = b; j < e; ++j)
+    for (b; j < e;)
     {
-        std::vector<int>::iterator m = j;
-        for (std::vector<int>::iterator i = j; ++i < e;)
+        std::vector<int>::iterator m = b;
+        for (std::vector<int>::iterator i = b; ++i < e;)
         {
             if (*i < *m)
             {
                 m = i;
             }
         }
-        std::swap(*j, *m);
+        std::iter_swap(b++, *m);
     }
 }
 
