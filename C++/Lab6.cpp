@@ -1,7 +1,7 @@
 #include <iostream>
 #include <utility>
 #include <vector>
-
+/*
 void selection_sort(std::vector<int>::iterator b, std::vector<int>::iterator e)
 {
     while (b < e)
@@ -25,6 +25,17 @@ int main()
     for (std::vector<int>::iterator i = v.begin(); i < v.end(); ++i)
     {
         std::cout << *i << " ";
+    }
+    std::cout << std::endl;
+}
+*/
+
+int main()
+{
+    std::vector<int> v{-7, 6, 2, 2, 11, 2, 3};
+    for (auto i = v.begin(); i < v.end();)
+    {
+        std::cout << *i++ << " ";
     }
     std::cout << std::endl;
 }
