@@ -45,7 +45,7 @@ std::vector<int>::iterator remove(std::vector<int>::iterator b, std::vector<int>
 int main()
 {
     std::vector<int> v{-7, 5, 2, 2, 11, 2, 3};
-    auto j = remove(v.begin(), v.end());
+    auto j = remove(v.begin(), v.end(), 2);
     v.erase(j, v.end());
     for (auto i = v.begin(); i < v.end();)
     {
