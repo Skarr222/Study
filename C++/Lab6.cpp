@@ -40,15 +40,14 @@ std::vector<int>::iterator remove(std::vector<int> &v)
             *j++ = *i;
         }
     }
-    return j
+    return j;
 }
 
 int main()
 {
     std::vector<int> v{-7, 5, 2, 2, 11, 2, 3};
-    remove(v);
+    auto j = remove(v);
     v.erase(j, v.end());
-
     for (auto i = v.begin(); i < v.end();)
     {
         std::cout << *i++ << " ";
