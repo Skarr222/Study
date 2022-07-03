@@ -2,8 +2,7 @@
 #include <functional>
 #include <vector>
 
-std::vector<int>::iterator remove_if(std::vector<int>::iterator x, std::vector<int>::iterator y, [](int element)
-                                     { return bool element; })
+std::vector<int>::iterator remove_if(std::vector<int>::iterator x, std::vector<int>::iterator y, std::function<bool(int, int)> z >)
 {
     auto = m;
     for (auto i = x; i < y; ++i)
