@@ -2,13 +2,15 @@
 #include <functional>
 #include <vector>
 
-std::vector<int>::iterator remove_if(std::vector<int>::iterator x, std::vector<int>::iterator y, std::function<bool(int, int)> z >)
+std::vector<int>::iterator remove_if(std::vector<int>::iterator x, std::vector<int>::iterator y, std::function<bool(int)> z)
 {
-    auto = m;
-    for (auto i = x; i < y; ++i)
+    while (x < y)
     {
-        if (i <=)
+        *y = z(*x);
+        x++;
+        y++;
     }
+    return y;
 }
 
 int main()
