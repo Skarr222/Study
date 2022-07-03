@@ -2,13 +2,13 @@
 #include <functional>
 #include <vector>
 
-std::vector<int>::iterator transform(std::vector<int>::const_iterator b, std::vector<int>::const_iterator e, std::vector<int>::iterator f, std::function<int(int)> x)
+std::vector<int>::iterator transform(std::vector<int>::const_iterator x, std::vector<int>::const_iterator y, std::vector<int>::iterator f, std::function<int(int)> z)
 {
 
-    while (b < e)
+    while (x < y)
     {
-        *f = x(*b);
-        b++;
+        *f = z(*x);
+        x++;
         f++;
     }
 
