@@ -59,5 +59,3 @@ int main()
     bool b = (s == "peppermint, 1001, bubbles, balloon, gum,");
     std::cout << std::boolalpha << b << std::endl;
 }
-
-int i = 1
