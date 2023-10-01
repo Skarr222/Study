@@ -1,4 +1,4 @@
-package main;
+package w1.main;
 
 public class account {
     private String bankName;

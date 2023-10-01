@@ -1,4 +1,4 @@
-package main;
+package w1.main;
 
 public class worker {
     private String name, surrName;
@@ -13,6 +13,8 @@ public class worker {
     }
 
     public void print() {
+        System.out.println("Dane podstawowe pracownika");
+
         System.out.println("id: " + id);
         System.out.println("Name: " + name);
         System.out.println("surrName: " + surrName);
