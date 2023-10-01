@@ -3,29 +3,22 @@ package main;
 public class worker {
     private String name, surrName;
     private Integer id;
+    private account bankAccount;
 
-    public worker() {
-        name = "Oskar";
-        surrName = "Gomza";
-        id = 1;
-    }
-
-    public worker(String name, String surrName, Integer id) {
+    public worker(String name, String surrName, Integer id, account bankAccount) {
         this.name = name;
         this.surrName = surrName;
         this.id = id;
-    }
-
-    public worker(String name, String surrName) {
-        this.name = name;
-        this.surrName = surrName;
-        this.id = 1;
+        this.bankAccount = bankAccount;
     }
 
     public void print() {
         System.out.println("id: " + id);
         System.out.println("Name: " + name);
         System.out.println("surrName: " + surrName);
+
+        // ! print method from class account
+        bankAccount.print();
     }
 
 }
