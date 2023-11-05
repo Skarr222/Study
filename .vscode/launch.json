@@ -31,7 +31,7 @@
       "type": "java",
       "name": "index",
       "request": "launch",
-      "mainClass": "w4.main.index",
+      "mainClass": "w5.main.index",
       "projectName": "Study_fe958fec"
     }
   ]
