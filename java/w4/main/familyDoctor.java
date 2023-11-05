@@ -1,6 +1,6 @@
 package w4.main;
 
-public class familyDoctor extends contractedPerson {
+public class familyDoctor extends person {
     private double numberOfSavedPatients;
 
     public familyDoctor(String name, String surrName, double numberOfSavedPatients) {

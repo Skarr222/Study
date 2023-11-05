@@ -1,6 +1,6 @@
 package w4.main;
 
-public class specialistDoctor extends contractedPerson {
+public class specialistDoctor extends person {
     private double numberOfAcceptedPatients;
 
     public specialistDoctor(String name, String SurrName, double numberOfAcceptedPatients) {

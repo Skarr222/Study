@@ -1,6 +1,9 @@
 package w4.main;
+//* jeżeli osoba implementuje interfaceContractedObiect to żeby 
 
-public class person {
+//* nie była abstrakcyjna musi mieć zrealizowane wszytkie metody z interfejsu
+
+public abstract class person {
     private String name;
     private String surrName;
 
@@ -12,5 +15,15 @@ public class person {
     public void print() {
         System.out.println(name + surrName);
 
+    }
+
+    public abstract double paymentValue();
+
+    public void printTransferOrder() {
+        System.out.println("Polecenie przelewu: ");
+        System.out.println("Imie i Nazwisko: ");
+        print();
+        System.out.println("Kwota przelewu: " + paymentValue());
+        System.out.println();
     }
 }
