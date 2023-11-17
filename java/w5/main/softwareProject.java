@@ -17,8 +17,8 @@ public class softwareProject extends project {
 
     }
 
-    public void projectData() {
-        super.projectData();
+    public void data() {
+        super.data();
         System.out.println("Liczba Osobo-Miesięcy Młodszych Programistów: " + numberPersonMonthJuniorPrograming);
         System.out.println("Liczba Osobo-Miesięcy Programistów: " + numberPersonMonthMidPrograming);
         System.out.println("Liczba Osobo-Miesięcy Starszych Programistów: " + numberPersonMonthSeniorPrograming);

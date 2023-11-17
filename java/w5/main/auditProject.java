@@ -11,8 +11,8 @@ public class auditProject extends project {
         this.numberPersonMonthOlderSpecialist = numberPersonMonthOlderSpecialist;
     }
 
-    public void projectData() {
-        super.projectData();
+    public void data() {
+        super.data();
         System.out.println("Liczba Osobo-Miesięcy Specjalisty: " + numberPersonMonthSpecialist);
         System.out.println("Liczba Osobo-Miesięcy Starszego Specjalisty: " + numberPersonMonthOlderSpecialist);
 

@@ -14,8 +14,8 @@ public class softwareHelpDeskProject extends softwareProject {
 
     }
 
-    public void projectData() {
-        super.projectData();
+    public void data() {
+        super.data();
         System.out.println("Liczba godzin helpdesku: " + hoursOfHelpdesk);
 
     }

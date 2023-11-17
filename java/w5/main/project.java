@@ -1,7 +1,7 @@
 package w5.main;
 
 //*Jeżeli klasa zawiera co najmniej jedną metodę abstrakcyjną, to musi być abstrakcyjna */
-public abstract class project {
+public abstract class project implements iObjectContract  {
     private final String title;
     private final String description;
     protected double additionalCosts;
@@ -12,7 +12,7 @@ public abstract class project {
         this.additionalCosts = additionalCosts;
     }
 
-    public void projectData() {
+    public void data() {
         System.out.println("Tytuł: " + title);
         System.out.println("Opis: " + description);
         System.out.println("Koszty dodatkowe: " + additionalCosts);
