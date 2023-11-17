@@ -1,8 +1,9 @@
 package w5.main;
 
-//*Jeżeli klasa zawiera conajmniej jedną metode abstrakcyjną to musi być abstrakcyjna */
+//*Jeżeli klasa zawiera co najmniej jedną metodę abstrakcyjną, to musi być abstrakcyjna */
 public abstract class project {
-    private String title, description;
+    private final String title;
+    private final String description;
     protected double additionalCosts;
 
     public project(String title, String description, double additionalCosts) {
@@ -17,11 +18,10 @@ public abstract class project {
         System.out.println("Koszty dodatkowe: " + additionalCosts);
 
     }
-    // * Funkcja abstrakcyjna to taka że ma abstract z przodu i nie ma bloku
-    // * Jak nie wiemy jak napisać daną funkcje w klasie w której jesteśmy a wiemy
-    // * jak w klasie dziedziczącej to warto w tej pierwszej klasie zrobić ją
-    // * abstrakcyjną
-
+    // Funkcja abstrakcyjna to taka, że ma abstract z przodu i nie ma bloku.
+    // Jak nie wiemy, jak napisać daną funkcję w klasie, w której jesteśmy, a wiemy,
+    // jak w klasie dziedziczącej to warto w tej pierwszej klasie zrobić ją
+    // abstrakcyjną
     public abstract double calculate();
 
 }

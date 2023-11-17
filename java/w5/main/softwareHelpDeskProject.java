@@ -1,7 +1,7 @@
 package w5.main;
 
 public class softwareHelpDeskProject extends softwareProject {
-    private double hoursOfHelpdesk;
+    private final double hoursOfHelpdesk;
 
     public softwareHelpDeskProject(String title, String description, double additionalCosts,
             double numberPersonMonthJuniorProgramist,

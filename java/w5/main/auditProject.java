@@ -1,8 +1,8 @@
 package w5.main;
 
 public class auditProject extends project {
-    private double numberPersonMonthSpecialist;
-    private double numberPersonMonthOlderSpecialist;
+    private final double numberPersonMonthSpecialist;
+    private final double numberPersonMonthOlderSpecialist;
 
     public auditProject(String title, String description, double additionalCosts, double numberPersonMonthSpecialist,
             double numberPersonMonthOlderSpecialist) {

@@ -1,17 +1,17 @@
 package w5.main;
 
 public class softwareProject extends project {
-    private double numberPersonMonthJuniorProgramist, numberPersonMonthMidProgramist, numberPersonMonthSeniorProgramist,
+    private final double numberPersonMonthJuniorPrograming, numberPersonMonthMidPrograming, numberPersonMonthSeniorPrograming,
             numberPersonMonthTesters, numberPersonMonthDesigner;
 
     public softwareProject(String title, String description, double additionalCosts,
-            double numberPersonMonthJuniorProgramist,
-            double numberPersonMonthMidProgramist, double numberPersonMonthSeniorProgramist,
-            double numberPersonMonthTesters, double numberPersonMonthDesigner) {
+                           double numberPersonMonthJuniorPrograming,
+                           double numberPersonMonthMidPrograming, double numberPersonMonthSeniorPrograming,
+                           double numberPersonMonthTesters, double numberPersonMonthDesigner) {
         super(title, description, additionalCosts);
-        this.numberPersonMonthJuniorProgramist = numberPersonMonthJuniorProgramist;
-        this.numberPersonMonthMidProgramist = numberPersonMonthMidProgramist;
-        this.numberPersonMonthSeniorProgramist = numberPersonMonthSeniorProgramist;
+        this.numberPersonMonthJuniorPrograming = numberPersonMonthJuniorPrograming;
+        this.numberPersonMonthMidPrograming = numberPersonMonthMidPrograming;
+        this.numberPersonMonthSeniorPrograming = numberPersonMonthSeniorPrograming;
         this.numberPersonMonthTesters = numberPersonMonthTesters;
         this.numberPersonMonthDesigner = numberPersonMonthDesigner;
 
@@ -19,9 +19,9 @@ public class softwareProject extends project {
 
     public void projectData() {
         super.projectData();
-        System.out.println("Liczba Osobo-Miesięcy Młodszych Programistów: " + numberPersonMonthJuniorProgramist);
-        System.out.println("Liczba Osobo-Miesięcy Programistów: " + numberPersonMonthMidProgramist);
-        System.out.println("Liczba Osobo-Miesięcy Starszych Programistów: " + numberPersonMonthSeniorProgramist);
+        System.out.println("Liczba Osobo-Miesięcy Młodszych Programistów: " + numberPersonMonthJuniorPrograming);
+        System.out.println("Liczba Osobo-Miesięcy Programistów: " + numberPersonMonthMidPrograming);
+        System.out.println("Liczba Osobo-Miesięcy Starszych Programistów: " + numberPersonMonthSeniorPrograming);
         System.out.println("Liczba Osobo-Miesięcy Projektantów: " + numberPersonMonthTesters);
         System.out.println("Liczba Osobo-Miesięcy Testerów: " + numberPersonMonthDesigner);
 
@@ -29,9 +29,9 @@ public class softwareProject extends project {
 
     public double calculate() {
         buissnesExpenses buissnesExpenses = new buissnesExpenses();
-        return this.numberPersonMonthJuniorProgramist * buissnesExpenses.getAveragePaymentJuniorProgrammer()
-                + this.numberPersonMonthMidProgramist * buissnesExpenses.getAveragePaymentProgrammer()
-                + this.numberPersonMonthSeniorProgramist * buissnesExpenses.getAveragePaymentSeniorProgrammer()
+        return this.numberPersonMonthJuniorPrograming * buissnesExpenses.getAveragePaymentJuniorProgrammer()
+                + this.numberPersonMonthMidPrograming * buissnesExpenses.getAveragePaymentProgrammer()
+                + this.numberPersonMonthSeniorPrograming * buissnesExpenses.getAveragePaymentSeniorProgrammer()
                 + this.numberPersonMonthTesters * buissnesExpenses.getAveragePaymentTester()
                 + this.numberPersonMonthDesigner * buissnesExpenses.getAveragePaymentDesigner()
                 + this.additionalCosts;
