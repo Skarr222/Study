@@ -1,4 +1,3 @@
-package w5.main;
 
 // Ten interfejs jest po to, żeby mógł drukować umowy nie tylko na projekty, ale na sprzedaż i usługi.
 // Ten interfejs jest po to, żeby w klasie Contract działała funkcja printContract nie tylko na projekcie.
@@ -9,5 +8,6 @@ package w5.main;
 
 interface iObjectContract {
     void data();
+
     double calculate();
 }
