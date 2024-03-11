@@ -1,7 +1,5 @@
 package kol1;
 
-import l1.main.Ksiegowosc;
-
 import java.util.ArrayList;
 
 class SklepTelefon {

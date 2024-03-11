@@ -1,15 +1,10 @@
 package l1.main;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class TabelaZamowienia extends Tabela<Zamowienie> {
 
-
-    public TabelaZamowienia (String nazwaTabeli) {
+    public TabelaZamowienia(String nazwaTabeli) {
         super(nazwaTabeli);
     }
-
 
     @Override
     public void zapiszDoTabeli(Zamowienie zamowienie) {
