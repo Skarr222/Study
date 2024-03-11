@@ -1,4 +1,3 @@
-package w5.main;
 
 public class softwareHelpDeskProject extends softwareProject {
     private final double hoursOfHelpdesk;

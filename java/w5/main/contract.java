@@ -1,4 +1,3 @@
-package w5.main;
 
 public class contract {
     public void printContract(iObjectContract p) {

@@ -1,4 +1,3 @@
-package w5.main;
 
 public class buissnesExpenses {
     public double getAveragePaymentJuniorProgrammer() {

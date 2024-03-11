@@ -1,4 +1,3 @@
-package w5.main;
 
 //*Jeżeli klasa zawiera co najmniej jedną metodę abstrakcyjną, to musi być abstrakcyjna */
 public abstract class project implements iObjectContract  {
@@ -18,6 +17,7 @@ public abstract class project implements iObjectContract  {
         System.out.println("Koszty dodatkowe: " + additionalCosts);
 
     }
+
     // Funkcja abstrakcyjna to taka, że ma abstract z przodu i nie ma bloku.
     // Jak nie wiemy, jak napisać daną funkcję w klasie, w której jesteśmy, a wiemy,
     // jak w klasie dziedziczącej to warto w tej pierwszej klasie zrobić ją

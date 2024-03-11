@@ -1,4 +1,3 @@
-package w4.main;
 
 public class financeParameters {
     public double GetValueOfPatient() {
