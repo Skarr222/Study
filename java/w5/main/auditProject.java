@@ -1,4 +1,3 @@
-package w5.main;
 
 public class auditProject extends project {
     private final double numberPersonMonthSpecialist;

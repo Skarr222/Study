@@ -1,4 +1,3 @@
-package w4.main;
 
 public class familyDoctor extends person {
     private double numberOfSavedPatients;

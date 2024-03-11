@@ -1,4 +1,3 @@
-package w4.main;
 //* jeżeli osoba implementuje interfaceContractedObiect to żeby 
 
 //* nie była abstrakcyjna musi mieć zrealizowane wszytkie metody z interfejsu

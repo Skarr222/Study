@@ -1,13 +1,13 @@
-package w5.main;
 
 public class softwareProject extends project {
-    private final double numberPersonMonthJuniorPrograming, numberPersonMonthMidPrograming, numberPersonMonthSeniorPrograming,
+    private final double numberPersonMonthJuniorPrograming, numberPersonMonthMidPrograming,
+            numberPersonMonthSeniorPrograming,
             numberPersonMonthTesters, numberPersonMonthDesigner;
 
     public softwareProject(String title, String description, double additionalCosts,
-                           double numberPersonMonthJuniorPrograming,
-                           double numberPersonMonthMidPrograming, double numberPersonMonthSeniorPrograming,
-                           double numberPersonMonthTesters, double numberPersonMonthDesigner) {
+            double numberPersonMonthJuniorPrograming,
+            double numberPersonMonthMidPrograming, double numberPersonMonthSeniorPrograming,
+            double numberPersonMonthTesters, double numberPersonMonthDesigner) {
         super(title, description, additionalCosts);
         this.numberPersonMonthJuniorPrograming = numberPersonMonthJuniorPrograming;
         this.numberPersonMonthMidPrograming = numberPersonMonthMidPrograming;
