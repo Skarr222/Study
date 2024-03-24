@@ -61,7 +61,7 @@ class PracownikGodzinowy : public Pracownik{
 
 class Ksiegowosc{
     public:
-    virtual void DrukujPIT(Pracownik &pracownik){
+     void DrukujPIT(Pracownik &pracownik){
         std::cout << "Pit 11: " << std::endl;
         std::cout << "Dane Podatnika: "  << std::endl;
         pracownik.Drukuj();
