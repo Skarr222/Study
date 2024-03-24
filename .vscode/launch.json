@@ -5,16 +5,17 @@
   "tasks": [
     {
       "taskName": "Makefile",
-      // Make this the default build command.
       "isBuildCommand": true,
-      // Show the output window only if unrecognized errors occur.
       "showOutput": "always",
-      // Pass 'all' as the build target
-      "args": ["all"],
-      // Use the standard less compilation problem matcher.
+      "args": [
+        "all"
+      ],
       "problemMatcher": {
         "owner": "cpp",
-        "fileLocation": ["relative", "${workspaceRoot}"],
+        "fileLocation": [
+          "relative",
+          "${workspaceRoot}"
+        ],
         "pattern": {
           "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
           "file": 1,
@@ -33,6 +34,25 @@
       "request": "launch",
       "mainClass": "l1.main.index",
       "projectName": "Study_fe958fec"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/oskar/VSC/Study/cpp/Study-NLU/w4",
+      "program": "c:/Users/oskar/VSC/Study/cpp/Study-NLU/w4/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
     }
   ]
 }
