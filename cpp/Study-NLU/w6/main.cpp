@@ -21,7 +21,7 @@ class Pracownik : public Osoba {
         Osoba::Drukuj();
         std::cout << "Stanowisko: " << stanowisko << std::endl;
     }
-    double DochodyRoczne (){
+    virtual double DochodyRoczne (){
         return 0;
     }
 };
@@ -37,10 +37,11 @@ class PracownikEtatowy : public Pracownik {
         std::cout << "Płaca Brutto: " << placaBrutto << std::endl;
     }
 
-    double DochodyRoczne (){
+     virtual double DochodyRoczne (){
         return placaBrutto * 12;
     }
 };
+
 class PracownikGodzinowy : public Pracownik{
     private:
     double stawkaGodzinowa;
@@ -53,14 +54,15 @@ class PracownikGodzinowy : public Pracownik{
         std::cout << "Stawka Godzinowa: " << stawkaGodzinowa << std::endl;
         std::cout << "Liczba Godzin: " << liczbaGodzin << std::endl;
     }
-    double DochodyRoczne (){
+   virtual double DochodyRoczne (){
         return liczbaGodzin * stawkaGodzinowa;
     }
 };
+
 class Ksiegowosc{
     public:
-    void  DrukujPIT (Pracownik& pracownik){
-        std::cout << "Pit 11: " << pracownik.DochodyRoczne() << std::endl;
+    virtual void DrukujPIT(Pracownik &pracownik){
+        std::cout << "Pit 11: " << std::endl;
         std::cout << "Dane Podatnika: "  << std::endl;
         pracownik.Drukuj();
         std::cout << "Dochody roczne podatnika: " << pracownik.DochodyRoczne() << std::endl;
@@ -85,18 +87,30 @@ int main() {
     ! Pracownik *wsk3 = &osoba
     ! wsk3->Drukuj();
     */  
-   
+
+    Ksiegowosc ksiegowosc;
     Pracownik pracownik("Jan", "Pracownik", "Informatyk");
-    std::cout << "Pracownik:" << std::endl;
-    pracownik.Drukuj();
+
+    // std::cout << "Pracownik:" << std::endl;
+    // pracownik.Drukuj();
+
+    std::cout << "Ksiegowosc:" << std::endl;
+    ksiegowosc.DrukujPIT(pracownik);
+    std::cout << std::endl; 
 
     PracownikEtatowy pracownikEtatowy("Jan", "Etatowy", "Kierownik", 6000);
-    std::cout << "Pracownik Etatowy:" << std::endl;
-    pracownikEtatowy.Drukuj();
+    // std::cout << "Pracownik Etatowy:" << std::endl;
+    // pracownikEtatowy.Drukuj();
+    std::cout << "Ksiegowosc Etatowy:" << std::endl;
+    ksiegowosc.DrukujPIT(pracownikEtatowy);
+    std::cout << std::endl; 
 
-    PracownikGodzinowy pracownikGodzinowy("Jan", "Godzinowy", "Kierownik", 50, 100);
-    std::cout << "Pracownik Godzinowy:" << std::endl;
-    pracownikGodzinowy.Drukuj();
+    PracownikGodzinowy pracownikGodzinowy("Jan", "Godzinowy", "Tester", 50, 100);
+    // std::cout << "Pracownik Godzinowy:" << std::endl;
+    // pracownikGodzinowy.Drukuj();
+    std::cout << "Ksiegowosc Godzinowy:" << std::endl;
+    ksiegowosc.DrukujPIT(pracownikGodzinowy);
+    std::cout << std::endl; 
 
     return 0;
 }
