@@ -6,7 +6,7 @@ class Osoba {
     std::string nazwisko;
 public:
     Osoba(std::string imie, std::string nazwisko) : imie(imie), nazwisko(nazwisko){}
-    void Drukuj() const {
+    virtual void Drukuj() const {
         std::cout << "Imie i Nazwisko: " << imie << " "<< nazwisko << std::endl;
     }
 };
@@ -17,11 +17,11 @@ class Pracownik : public Osoba {
     public:
     Pracownik(std::string imie, std::string nazwisko, std::string stanowisko) 
     : Osoba(imie, nazwisko), stanowisko(stanowisko) {}
-    void Drukuj() const {
+     void Drukuj() const {
         Osoba::Drukuj();
         std::cout << "Stanowisko: " << stanowisko << std::endl;
     }
-    virtual double DochodyRoczne (){
+     virtual double DochodyRoczne (){
         return 0;
     }
 };
@@ -37,7 +37,7 @@ class PracownikEtatowy : public Pracownik {
         std::cout << "Płaca Brutto: " << placaBrutto << std::endl;
     }
 
-     virtual double DochodyRoczne (){
+    double DochodyRoczne (){
         return placaBrutto * 12;
     }
 };
@@ -54,7 +54,7 @@ class PracownikGodzinowy : public Pracownik{
         std::cout << "Stawka Godzinowa: " << stawkaGodzinowa << std::endl;
         std::cout << "Liczba Godzin: " << liczbaGodzin << std::endl;
     }
-   virtual double DochodyRoczne (){
+    double DochodyRoczne (){
         return liczbaGodzin * stawkaGodzinowa;
     }
 };
