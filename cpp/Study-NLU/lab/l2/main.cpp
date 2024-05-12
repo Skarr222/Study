@@ -31,15 +31,15 @@ public:
         std::cout << "Liczba butelek M: " << liczbaButelekM << std::endl;
         std::cout << "Liczba butelek L: " << liczbaButelekL << std::endl;
     }
-    void setSmallWaterCapacity(int capacity)
+    void setSmallWaterCapacity(double capacity)
     {
         pojemonscS = capacity;
     }
-    void setMediumWaterCapacity(int capacity)
+    void setMediumWaterCapacity(double capacity)
     {
         pojemonscM = capacity;
     }
-    void setLargeWaterCapacity(int capacity)
+    void setLargeWaterCapacity(double capacity)
     {
         pojemonscL = capacity;
     }
@@ -50,8 +50,8 @@ double MyWater::pojemonscL = 2;
 int main()
 {
     MyWater woda;
-    woda.addSmallWater(5);
-    woda.addMediumWater(3);
+    woda.addSmallWater(3);
+    woda.addMediumWater(1);
     woda.addLargeWater(2);
     woda.showSum();
 
