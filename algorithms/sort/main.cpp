@@ -77,6 +77,96 @@ void coutingSort(int array[], int size)
         }
     }
 }
+void quickSort(int *tab, int left, int right)
+{
+    if (left >= right)
+    {
+        return;
+    }
+    int indexLeft = left;
+    int indexRight = right;
+    int pivot = tab[(left + right) / 2];
+    while (true)
+    {
+        while (tab[indexLeft] < pivot)
+            indexLeft++;
+        while (tab[indexRight] > pivot)
+            indexRight--;
+
+        if (indexLeft <= indexRight)
+        {
+            int temp = tab[indexLeft];
+            tab[indexLeft] = tab[indexRight];
+            tab[indexRight] = temp;
+            indexLeft++;
+            indexRight--;
+        }
+        if (indexLeft > indexRight)
+        {
+            break;
+        }
+    }
+    if (left < indexRight)
+    {
+        quickSort(tab, left, indexRight);
+    }
+    if (indexLeft < right)
+    {
+        quickSort(tab, indexLeft, right);
+    }
+}
+void merge(int *tab, int left, int middle, int right)
+{
+    int *temp = new int[right - left + 1];
+    int i = left;
+    int j = middle + 1;
+    int k = 0;
+    while (i <= middle && j <= right)
+    {
+        if (tab[i] < tab[j])
+        {
+            temp[k] = tab[i];
+            i++;
+        }
+        else
+        {
+            temp[k] = tab[j];
+            j++;
+        }
+        k++;
+    }
+    while (i <= middle)
+    {
+        temp[k] = tab[i];
+        i++;
+        k++;
+    }
+    while (j <= right)
+    {
+        temp[k] = tab[j];
+        j++;
+        k++;
+    }
+    for (int i = left; i <= right; i++)
+    {
+        tab[i] = temp[i - left];
+    }
+    delete[] temp;
+}
+void mergeSort(int *tab, int left, int right)
+{
+    if (left >= right)
+    {
+        return;
+    }
+    if (left < right)
+    {
+        int middle = (left + right) / 2;
+        mergeSort(tab, left, middle);
+        mergeSort(tab, middle + 1, right);
+        merge(tab, left, middle, right);
+    }
+}
 
 int main()
 {
@@ -103,14 +193,19 @@ int main()
     }
     std::cout << std::endl;
     std::cout << "Couting Sort:" << std::endl;
-    auto begin = std::chrono::high_resolution_clock::now();
     coutingSort(arr, 10);
-    auto end = std::chrono::high_resolution_clock::now();
-    auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-    std::cout << "Time: " << elapsed.count() << "ns" << std::endl;
     for (int i = 0; i < 10; i++)
     {
         std::cout << arr[i] << ' ';
+    }
+    std::cout << std::endl;
+
+    std::cout << "Quick Sort:" << std::endl;
+    int *tab = new int[10]{0, 2, 5, 2, 6, 9, 6, 7, 2, 6};
+    quickSort(tab, 0, 9);
+    for (int i = 0; i < 10; i++)
+    {
+        std::cout << tab[i] << ' ';
     }
     std::cout << std::endl;
 };
