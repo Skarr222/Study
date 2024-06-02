@@ -10,16 +10,26 @@ class Student
 private:
     int idStudenta;
     string imie;
-    double *wynikiKolokwiow;
+    double wynikiKolokwiow[3];
     double sredniWynik;
 
 public:
-    Student(int id, string nazwa) : idStudenta(id), imie(nazwa)
+    // Domyślny konstruktor
+    Student() : idStudenta(0), imie(""), sredniWynik(0)
     {
-        this->wynikiKolokwiow = new double[3];
+        for (int i = 0; i < 3; ++i)
+            wynikiKolokwiow[i] = 0;
     }
 
-    int getIdStudneta() const
+    // Konstruktor z parametrami
+    Student(int id, string nazwa, double wyniki[3]) : idStudenta(id), imie(nazwa)
+    {
+        for (int i = 0; i < 3; ++i)
+            wynikiKolokwiow[i] = wyniki[i];
+        updateSredniWynik();
+    }
+
+    int getIdStudenta() const
     {
         return idStudenta;
     }
@@ -29,57 +39,158 @@ public:
         return imie;
     }
 
-    void dodajWynik(int wynik)
+    void dodajWynik(int index, double wynik)
     {
-        updateSredniWynik();
+        if (index >= 0 && index < 3)
+        {
+            wynikiKolokwiow[index] = wynik;
+            updateSredniWynik();
+        }
     }
 
-    double getSredniWynik()
+    double getSredniWynik() const
     {
         return sredniWynik;
+    }
+
+    void wyswietlInformacje() const
+    {
+        cout << "ID: " << idStudenta << ", Imie: " << imie << ", Wyniki: ";
+        for (int i = 0; i < 3; ++i)
+        {
+            cout << wynikiKolokwiow[i] << " ";
+        }
+        cout << ", Sredni wynik: " << sredniWynik << endl;
     }
 
 private:
     void updateSredniWynik()
     {
+        sredniWynik = (wynikiKolokwiow[0] + wynikiKolokwiow[1] + wynikiKolokwiow[2]) / 3.0;
     }
 };
+
 class Grupa
 {
 private:
+    Student uczniowie[20];
+    int liczbaUczniow;
+
 public:
-    void dodajUcznia(Student &uczen)
+    Grupa() : liczbaUczniow(0) {}
+
+    void dodajUcznia(const Student &uczen)
     {
+        if (liczbaUczniow < 20)
+        {
+            uczniowie[liczbaUczniow++] = uczen;
+        }
+        else
+        {
+            cout << "Grupa jest pelna." << endl;
+        }
     }
 
     void usunUcznia(int id_ucznia)
     {
+        for (int i = 0; i < liczbaUczniow; ++i)
+        {
+            if (uczniowie[i].getIdStudenta() == id_ucznia)
+            {
+                for (int j = i; j < liczbaUczniow - 1; ++j)
+                {
+                    uczniowie[j] = uczniowie[j + 1];
+                }
+                --liczbaUczniow;
+                cout << "Uczen o ID " << id_ucznia << " zostal usuniety." << endl;
+                return;
+            }
+        }
+        cout << "Uczen o ID " << id_ucznia << " nie zostal znaleziony." << endl;
     }
 
-    void aktualizujWynikiUcznia(int id_ucznia)
+    void aktualizujWynikiUcznia(int id_ucznia, double wyniki[3])
     {
+        for (int i = 0; i < liczbaUczniow; ++i)
+        {
+            if (uczniowie[i].getIdStudenta() == id_ucznia)
+            {
+                for (int j = 0; j < 3; ++j)
+                {
+                    uczniowie[i].dodajWynik(j, wyniki[j]);
+                }
+                cout << "Wyniki ucznia o ID " << id_ucznia << " zostaly zaktualizowane." << endl;
+                return;
+            }
+        }
+        cout << "Uczen o ID " << id_ucznia << " nie zostal znaleziony." << endl;
     }
 
-    double getSredniWynikStudenta(int id_ucznia)
+    double getSredniWynikStudenta(int id_ucznia) const
     {
+        for (int i = 0; i < liczbaUczniow; ++i)
+        {
+            if (uczniowie[i].getIdStudenta() == id_ucznia)
+            {
+                return uczniowie[i].getSredniWynik();
+            }
+        }
+        cout << "Uczen o ID " << id_ucznia << " nie zostal znaleziony." << endl;
+        return 0;
     }
 
-    double getSredniaKlasy()
+    double getSredniaKlasy() const
     {
+        double suma = 0;
+        for (int i = 0; i < liczbaUczniow; ++i)
+        {
+            suma += uczniowie[i].getSredniWynik();
+        }
+        return liczbaUczniow > 0 ? suma / liczbaUczniow : 0;
     }
 
-    void getNajlepszyINajgorszyWynik()
+    void getNajlepszyINajgorszyWynik() const
     {
+        if (liczbaUczniow == 0)
+        {
+            cout << "Brak uczniow w grupie." << endl;
+            return;
+        }
+
+        const Student *najlepszyUczen = &uczniowie[0];
+        const Student *najgorszyUczen = &uczniowie[0];
+
+        for (int i = 1; i < liczbaUczniow; ++i)
+        {
+            if (uczniowie[i].getSredniWynik() > najlepszyUczen->getSredniWynik())
+            {
+                najlepszyUczen = &uczniowie[i];
+            }
+            if (uczniowie[i].getSredniWynik() < najgorszyUczen->getSredniWynik())
+            {
+                najgorszyUczen = &uczniowie[i];
+            }
+        }
+
+        cout << "Najlepszy wynik: ";
+        najlepszyUczen->wyswietlInformacje();
+        cout << "Najgorszy wynik: ";
+        najgorszyUczen->wyswietlInformacje();
     }
 
-    void wyswietlWszystkichUczniow()
+    void wyswietlWszystkichUczniow() const
     {
         cout << "Wszyscy uczniowie:" << endl;
+        for (int i = 0; i < liczbaUczniow; ++i)
+        {
+            uczniowie[i].wyswietlInformacje();
+        }
     }
 };
 
 int main()
 {
+    Grupa grupa;
     int wybor;
     do
     {
@@ -102,7 +213,8 @@ int main()
         {
         case 1:
         {
-            int id, wynik1, wynik2, wynik3;
+            int id;
+            double wynik1, wynik2, wynik3;
             string imie;
             cout << "Podaj Id ucznia: ";
             cin >> id;
@@ -110,55 +222,56 @@ int main()
             cin >> imie;
             cout << "Podaj wyniki 3 kolokwiow: ";
             cin >> wynik1 >> wynik2 >> wynik3;
-            Student student(id, imie);
-            student.dodajWynik(wynik1);
-            student.dodajWynik(wynik2);
-            student.dodajWynik(wynik3);
+            double wyniki[3] = {wynik1, wynik2, wynik3};
+            Student student(id, imie, wyniki);
+            grupa.dodajUcznia(student);
             break;
         }
         case 2:
         {
             int id;
-            cout << "Podaj ID ucznia do usunięcia: ";
+            cout << "Podaj ID ucznia do usuniecia: ";
             cin >> id;
+            grupa.usunUcznia(id);
             break;
         }
         case 3:
         {
-            int id, wynik1, wynik2, wynik3;
+            int id;
+            double wynik1, wynik2, wynik3;
             cout << "Podaj ID ucznia do aktualizacji: ";
             cin >> id;
             cout << "Podaj nowe wyniki 3 kolokwiow: ";
             cin >> wynik1 >> wynik2 >> wynik3;
+            double wyniki[3] = {wynik1, wynik2, wynik3};
+            grupa.aktualizujWynikiUcznia(id, wyniki);
             break;
         }
         case 4:
+            grupa.wyswietlWszystkichUczniow();
             break;
         case 5:
         {
             int id;
             cout << "Podaj ID ucznia, dla ktorego chcesz obliczyc sredni wynik: ";
             cin >> id;
-            cout << "Sredni wynik dla ucznia o ID " << id << " wynosi: " << endl;
+            cout << "Sredni wynik dla ucznia o ID " << id << " wynosi: " << grupa.getSredniWynikStudenta(id) << endl;
             break;
         }
         case 6:
         {
             int id;
-            cout << "Podaj ID ucznia, którego średni wynik chcesz wyświetlić: ";
+            cout << "Podaj ID ucznia, ktorego sredni wynik chcesz wyswietlic: ";
             cin >> id;
-            cout << "Sredni wynik dla ucznia o ID " << id << " wynosi: " << endl;
+            cout << "Sredni wynik dla ucznia o ID " << id << " wynosi: " << grupa.getSredniWynikStudenta(id) << endl;
             break;
         }
         case 7:
-            cout << "Sredni wynik dla wszystkich uczniow wynosi: " << endl;
+            cout << "Sredni wynik dla wszystkich uczniow wynosi: " << grupa.getSredniaKlasy() << endl;
             break;
         case 8:
-        {
-            cout << "Najlepszy wynik: " << endl;
-            cout << "Najgorszy wynik: " << endl;
+            grupa.getNajlepszyINajgorszyWynik();
             break;
-        }
         case 9:
             cout << "Zamykanie programu." << endl;
             break;
@@ -166,4 +279,5 @@ int main()
             cout << "Nieprawidlowy wybór. Prosze podać liczbe od 1 do 9." << endl;
         }
     } while (wybor != 9);
+    return 0;
 }
