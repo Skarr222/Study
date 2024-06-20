@@ -25,29 +25,29 @@
 
 using namespace std;
 
-int maksymalna_wysokosc_marchewek(int n, int *wysokosci)
+int maksymalnaWysokoscMarchewek(int n, int *wysokosciMarchewek)
 {
-    if (n == 0)
+    if (n == 0) // brak marchewek
     {
         return 0;
     }
-    else if (n == 1)
+    else if (n == 1) // jedna marchewka
     {
-        return wysokosci[0];
+        return wysokosciMarchewek[0];
     }
 
-    int *dp = new int[n];
-    dp[0] = wysokosci[0];
-    dp[1] = max(wysokosci[0], wysokosci[1]);
+    int *dt = new int[n]; // stworzenie dynamicznej tablicy dla każdej marchewki
+    dt[0] = wysokosciMarchewek[0]; // pierwsza marchewka
+    dt[1] = max(wysokosciMarchewek[0], wysokosciMarchewek[1]); // pierwsza lub druga marchewka (maksymalna wysokość)
 
     for (int i = 2; i < n; ++i)
     {
-        dp[i] = max(dp[i - 1], wysokosci[i] + dp[i - 2]);
+        dt[i] = max(dt[i - 1], wysokosciMarchewek[i] + dt[i - 2]); // maksymalna wysokość dla i-tej marchewki
     }
 
-    int maksymalna_wysokosc = dp[n - 1];
-    delete[] dp;
-    return maksymalna_wysokosc;
+    int maksymalnaWysokosc = dt[n - 1]; // maksymalna wysokość dla wszystkich marchewek
+    delete[] dt;
+    return maksymalnaWysokosc;
 }
 
 int main()
@@ -55,16 +55,14 @@ int main()
     int n;
     cin >> n;
 
-    int *wysokosci = new int[n];
-
+    int *wysokosciMarchewek = new int[n]; // wysokości marchewek
     for (int i = 0; i < n; ++i)
     {
-        cin >> wysokosci[i];
+        cin >> wysokosciMarchewek[i]; // wprowadzenie danych
     }
-
-    int wynik = maksymalna_wysokosc_marchewek(n, wysokosci);
+    int wynik = maksymalnaWysokoscMarchewek(n, wysokosciMarchewek);
     cout << wynik << endl;
 
-    delete[] wysokosci;
+    delete[] wysokosciMarchewek;
     return 0;
 }

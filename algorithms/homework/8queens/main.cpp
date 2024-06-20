@@ -1,4 +1,4 @@
-/*
+    /*
 * Janek uczy się grać w szachy. Poznaje sposób poruszania się różnych figur. Najśmieszniejszy
 * wydaje mu się styl skoków konika. Zastanawia się również, co byłoby, gdyby na szachownicy
 * znalazło się kilka figur hetmanów. Analizuje, czy na planszy o wymiarach n x n możliwe jest

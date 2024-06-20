@@ -7,15 +7,10 @@
       "taskName": "Makefile",
       "isBuildCommand": true,
       "showOutput": "always",
-      "args": [
-        "all"
-      ],
+      "args": ["all"],
       "problemMatcher": {
         "owner": "cpp",
-        "fileLocation": [
-          "relative",
-          "${workspaceRoot}"
-        ],
+        "fileLocation": ["relative", "${workspaceRoot}"],
         "pattern": {
           "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
           "file": 1,
@@ -42,8 +37,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/oskar/VSC/Study/cpp/Study-NLU/w4",
-      "program": "c:/Users/oskar/VSC/Study/cpp/Study-NLU/w4/build/Debug/outDebug",
+      "cwd": "c:/Users/oskar/VSC/Study/cpp/Study-NLU/algorithms/homework/lightbulb.cpp",
+      "program": "c:/Users/oskar/VSC/Study/cpp/Study-NLU/algorithms/homework/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

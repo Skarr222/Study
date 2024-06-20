@@ -1,6 +1,5 @@
 
 #include <iostream>
-#include <algorithm>
 using namespace std;
 
 double calculateMinRadius(int streetLength, int numberOfLanterns, int *lanterns)
