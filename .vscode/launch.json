@@ -37,8 +37,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/oskar/VSC/Study/cpp/Study-NLU/algorithms/homework/lightbulb.cpp",
-      "program": "c:/Users/oskar/VSC/Study/cpp/Study-NLU/algorithms/homework/outDebug",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceRoot}/a.out",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -3,52 +3,52 @@ using namespace std;
 
 void quickSort(int *tabela, int lewaStrona, int prawaStrona)
 {
-    // Sprawdzamy, czy lewa strona jest większa lub równa prawej stronie.
-    // Jeśli tak, kończymy funkcję, ponieważ nie ma już nic do sortowania.
+    // * Sprawdzamy, czy lewa strona jest większa lub równa prawej stronie.
+    // * Jeśli tak, kończymy funkcję, ponieważ nie ma już nic do sortowania.
     if (lewaStrona >= prawaStrona)
     {
         return;
     }
-    // Ustawiamy indeksy lewej i prawej strony.
+    // * Ustawiamy indeksy lewej i prawej strony.
     int indexLewaStrona = lewaStrona;
     int indexPrawaStrona = prawaStrona;
-    // Wybieramy pivot (jest to wartość względem, której będziemy sortować tablice) jako środkowy element tablicy.
+    // * Wybieramy pivot (jest to wartość względem, której będziemy sortować tablice) jako środkowy element tablicy.
     int pivot = tabela[(lewaStrona + prawaStrona) / 2];
     while (true)
     {
-        // Szukamy elementu większego pivotowi po lewej stronie.
+        // * Szukamy elementu większego pivotowi po lewej stronie.
         while (tabela[indexLewaStrona] < pivot)
             indexLewaStrona++;
-        // Szukamy elementu mniejszego pivotowi po prawej stronie.
+        // * Szukamy elementu mniejszego pivotowi po prawej stronie.
         while (tabela[indexPrawaStrona] > pivot)
             indexPrawaStrona--;
 
-        // Sprawdzamy, czy indeksy się nie przekroczyły.
+        // * Sprawdzamy, czy indeksy się nie przekroczyły.
         if (indexLewaStrona <= indexPrawaStrona)
         {
-            // Zamieniamy miejscami elementy, które są po niewłaściwych stronach pivotu. (swap z wykladu)
+            // * Zamieniamy miejscami elementy, które są po niewłaściwych stronach pivotu. (swap z wykladu)
             int temp = tabela[indexLewaStrona];
             tabela[indexLewaStrona] = tabela[indexPrawaStrona];
             tabela[indexPrawaStrona] = temp;
-            // Przesuwamy indeksy.
+            // * Przesuwamy indeksy.
             indexLewaStrona++;
             indexPrawaStrona--;
         }
-        // Jeśli indeksy się przekroczyły, wychodzimy z pętli.
+        // * Jeśli indeksy się przekroczyły, wychodzimy z pętli.
         if (indexLewaStrona > indexPrawaStrona)
         {
             break;
         }
     }
-    // Rekurencyjnie (rekurencyjnie czyli funkcja wywołuję się ponownie sama w ciele funkcji)
-    // wywołujemy funkcję dla lewej i prawej strony tablicy.
+    // * Rekurencyjnie (rekurencyjnie czyli funkcja wywołuję się ponownie sama w ciele funkcji)
+    // * wywołujemy funkcję dla lewej i prawej strony tablicy.
     if (lewaStrona < indexPrawaStrona)
     {
-        quickSort(tabela, lewaStrona, indexPrawaStrona); // Wywołujemy dla lewej strony
+        quickSort(tabela, lewaStrona, indexPrawaStrona); // * Wywołujemy dla lewej strony
     }
     if (indexLewaStrona < prawaStrona)
     {
-        quickSort(tabela, indexLewaStrona, prawaStrona); // Wywołujemy dla prawej strony
+        quickSort(tabela, indexLewaStrona, prawaStrona); // * Wywołujemy dla prawej strony
     }
 }
 
