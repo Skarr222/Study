@@ -4,5 +4,10 @@
 !out/
 /Study.iml
 /.idea/uiDesigner.xml
+/c#/helloWorld/obj
+/c#/helloWorld/obj*
+/c#/helloWorld/bin/*
+
+
 cpp/.idea
 .idea
