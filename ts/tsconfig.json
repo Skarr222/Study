@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 20",
+  "_version": "20.1.0",
+
+  "compilerOptions": {
+    "lib": ["ES2023", "DOM", "Decorators", "Decorators.Legacy"],
+    "module": "Node16",
+    "target": "ES2022",
+    "outDir": "./build",
+    "rootDir": "./",
+    "moduleResolution": "Node16",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "strictPropertyInitialization": false
+  }
+}
