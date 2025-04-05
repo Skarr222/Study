@@ -4,3 +4,5 @@
 !out/
 /Study.iml
 /.idea/uiDesigner.xml
+.vscode/
+.vs/

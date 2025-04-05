@@ -1,6 +1,7 @@
 package w7.main;
 
 public class Main {
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         System.out.println("Przykład typu generycznego");
 
