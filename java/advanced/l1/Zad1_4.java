@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 class AnalizatorTekstu {
     public void wyswietlDane(String phrase) {
-        System.err.println(phrase);
-        System.err.println(phrase.length());
-        System.err.println(phrase.charAt(0));
-        System.err.println(phrase.charAt(phrase.length() - 1));
+        System.out.println(phrase);
+        System.out.println(phrase.length());
+        System.out.println(phrase.charAt(0));
+        System.out.println(phrase.charAt(phrase.length() - 1));
     }
 }
 

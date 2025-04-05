@@ -9,6 +9,15 @@ class AnalizatorTekstu {
     }
 }
 
+class Przelicznik {
+    public Przelicznik() {
+    }
+
+    public void calculateKmToMiles(Float numberToCalculate) {
+
+    }
+}
+
 class Zad1_3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
