@@ -1,4 +1,3 @@
-// Source code is decompiled from a .class file using FernFlower decompiler.
 package j.advanced.homework.l2;
 
 import java.awt.*;
@@ -82,7 +81,7 @@ class FlashCards extends JFrame implements ActionListener {
         englishWord.setText(para.english);
         currentIndex++;
         if (currentIndex >= wordPairs.size()) {
-            currentIndex = 0; // start from beginning
+            currentIndex = 0;
         }
     }
 }
