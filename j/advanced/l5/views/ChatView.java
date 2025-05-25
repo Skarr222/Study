@@ -9,6 +9,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 import j.advanced.l5.helpers.Configuration;
+import j.advanced.l5.helpers.RodzajWiadomosciEnum;
+import j.advanced.l5.helpers.Wiadomosc;
 
 public class ChatView extends javax.swing.JPanel {
 
@@ -16,6 +18,7 @@ public class ChatView extends javax.swing.JPanel {
         this.socket = new Socket(Configuration.IP, Configuration.PORT);
         this.writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
         this.reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        new ClientThread().start();
 
         initComponents();
 
@@ -75,7 +78,8 @@ public class ChatView extends javax.swing.JPanel {
     }
 
     private void wyslijButtonActionPerformed(java.awt.event.ActionEvent evt) {
-
+        writer.println(new Wiadomosc(RodzajWiadomosciEnum.wiadomosc, inputTextField.getText()).serializuj());
+        inputTextField.setText("");
     }
 
     private javax.swing.JTextField inputTextField;
@@ -85,4 +89,32 @@ public class ChatView extends javax.swing.JPanel {
     public Socket socket;
     public BufferedReader reader;
     public PrintWriter writer;
+
+    class ClientThread extends Thread {
+
+        public ClientThread() {
+
+        }
+
+        @Override
+        public void run() {
+            try {
+                while (true) {
+                    String wiadomoscString = reader.readLine();
+                    Wiadomosc wiadomosc = Wiadomosc.deserializuj(wiadomoscString);
+                    System.out.println("Klient: " + wiadomoscString);
+
+                    switch (wiadomosc.getRodzajWiadomosci()) {
+                        case RodzajWiadomosciEnum.wiadomosc:
+                            jTextArea1.append(wiadomosc.getZawartosc() + "\n");
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+            } catch (Exception e) {
+            }
+        }
+    }
 }
