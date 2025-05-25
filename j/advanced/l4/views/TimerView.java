@@ -1,8 +1,8 @@
-package j.advanced.l5.views;
+package j.advanced.l4.views;
 
 import java.time.Instant;
 
-import j.advanced.l5.thread.StoperThread;
+import j.advanced.l4.thread.StoperThread;
 
 public class TimerView extends javax.swing.JFrame {
     private javax.swing.Timer guiUpdateTimer;
