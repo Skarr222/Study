@@ -9,3 +9,16 @@
 /c#/helloWorld/bin/*
 Study.sln
 
+/c#/helloWorld/Properties/launchSettings.json
+/.vscode/
+/.idea/
+/c#/helloWorld/bin/
+/c#/helloWorld/obj/
+*.nupkg
+*.vs/
+.vscode/
+.idea/workspace.xml
+/c#/l1/bin/
+/c#/l1/obj/
+/c#/l2/bin/
+/c#/l2/obj/
