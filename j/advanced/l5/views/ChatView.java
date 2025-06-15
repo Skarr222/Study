@@ -1,31 +1,28 @@
 package j.advanced.l5.views;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
+import j.advanced.l5.helpers.Wiadomosc;
+import java.io.*;
 import java.net.Socket;
 
-import j.advanced.l5.helpers.Configuration;
-import j.advanced.l5.helpers.RodzajWiadomosciEnum;
-import j.advanced.l5.helpers.Wiadomosc;
+import javax.swing.JOptionPane;
+
+import static j.advanced.l5.helpers.Configure.IP;
+import static j.advanced.l5.helpers.Configure.PORT;
+import static j.advanced.l5.helpers.Configure.RodzajWiadmosci.PODAJ_NAZWE;
+import static j.advanced.l5.helpers.Configure.RodzajWiadmosci.WIADOMOSC;
 
 public class ChatView extends javax.swing.JPanel {
 
     public ChatView() throws IOException {
-        this.socket = new Socket(Configuration.IP, Configuration.PORT);
-        this.writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
-        this.reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        socket = new Socket(IP, PORT);
+        writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
+        reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         new ClientThread().start();
-
         initComponents();
-
-        jTextArea1.append(reader.readLine() + "\n");
     }
 
     @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -36,7 +33,6 @@ public class ChatView extends javax.swing.JPanel {
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
-        jScrollPane1.setEnabled(false);
 
         wyslijButton.setText("Wyślij");
         wyslijButton.addActionListener(new java.awt.event.ActionListener() {
@@ -75,13 +71,15 @@ public class ChatView extends javax.swing.JPanel {
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(wyslijButton))
                                 .addGap(26, 26, 26)));
-    }
+    }// </editor-fold>
 
     private void wyslijButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        writer.println(new Wiadomosc(RodzajWiadomosciEnum.wiadomosc, inputTextField.getText()).serializuj());
+        writer.println(new Wiadomosc(WIADOMOSC, inputTextField.getText()).serializuj());
         inputTextField.setText("");
+        System.out.println("Wysylam");
     }
 
+    // Variables declaration - do not modify
     private javax.swing.JTextField inputTextField;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
@@ -90,30 +88,34 @@ public class ChatView extends javax.swing.JPanel {
     public BufferedReader reader;
     public PrintWriter writer;
 
-    class ClientThread extends Thread {
-
-        public ClientThread() {
-
-        }
+    public class ClientThread extends Thread {
 
         @Override
         public void run() {
             try {
+                String userInput = JOptionPane.showInputDialog("Podaj swoją nazwę:");
+                if (userInput == null || userInput.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Nazwa nie może być pusta!", "Błąd", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                writer.println(new Wiadomosc(PODAJ_NAZWE, userInput).serializuj());
+
                 while (true) {
                     String wiadomoscString = reader.readLine();
                     Wiadomosc wiadomosc = Wiadomosc.deserializuj(wiadomoscString);
                     System.out.println("Klient: " + wiadomoscString);
-
                     switch (wiadomosc.getRodzajWiadomosci()) {
-                        case RodzajWiadomosciEnum.wiadomosc:
+                        case WIADOMOSC: {
                             jTextArea1.append(wiadomosc.getZawartosc() + "\n");
                             break;
+                        }
                         default:
                             break;
                     }
 
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
             }
         }
     }

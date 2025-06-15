@@ -2,50 +2,67 @@ package j.advanced.l5;
 
 import j.advanced.l5.server.ChatServer;
 import j.advanced.l5.views.ChatView;
+
+import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
 public class Main {
-    public static void main(String[] args) {
-        try {
-            ChatServer server = new ChatServer();
-            server.start();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void main(String[] args) throws IOException {
+        ChatServer chatServer = new ChatServer();
+        chatServer.start();
+        System.out.println("Serwer gotowy");
 
-        try {
-            JFrame frame = new JFrame("Chat");
-            ChatView chatView = new ChatView();
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setContentPane(chatView);
-            frame.addWindowListener(new WindowAdapter() {
-                public void windowClosing(WindowEvent e) {
-                    try {
-                        chatView.writer.close();
-                    } catch (Exception e1) {
-                    }
-                    try {
-                        chatView.reader.close();
+        JFrame frame = new JFrame();
+        frame.setSize(1000, 1000);
+        ChatView chat = new ChatView();
+        frame.setContentPane(chat);
+        frame.setVisible(true);
+        frame.addWindowListener((WindowAdapter) new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                try {
+                    chat.writer.close();
+                } catch (Exception ex) {
 
-                    } catch (Exception e2) {
-                    }
-                    try {
-                        chatView.socket.close();
-                    } catch (Exception e3) {
-                    }
                 }
-            });
-            frame.pack();
-            frame.setVisible(true);
-        } catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error connecting to server: " + e.getMessage(),
-                    "Connection Error", JOptionPane.ERROR_MESSAGE);
-        }
+                try {
+                    chat.reader.close();
+                } catch (IOException exc) {
+
+                }
+                try {
+                    chat.socket.close();
+                } catch (IOException exc) {
+
+                }
+            }
+        });
+
+        frame = new JFrame();
+        frame.setSize(1000, 1000);
+        ChatView chat2 = new ChatView();
+        frame.setContentPane(chat2);
+        frame.setVisible(true);
+        frame.addWindowListener((WindowAdapter) new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                try {
+                    chat2.writer.close();
+                } catch (Exception ex) {
+
+                }
+                try {
+                    chat2.reader.close();
+                } catch (IOException exc) {
+
+                }
+                try {
+                    chat2.socket.close();
+                } catch (IOException exc) {
+
+                }
+            }
+        });
+
     }
 }

@@ -1,13 +1,12 @@
 package j.advanced.l5.server;
 
-import java.io.IOException;
-
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-import j.advanced.l5.helpers.Configuration;
+import static j.advanced.l5.helpers.Configuration.PORT;
 
 public class ChatServer extends Thread {
     private ServerSocket serverSocket;
@@ -15,28 +14,25 @@ public class ChatServer extends Thread {
 
     public ChatServer() throws IOException {
         this.klienci = new ArrayList<>();
-        this.serverSocket = new ServerSocket(Configuration.PORT);
+        this.serverSocket = new ServerSocket(PORT);
     }
 
-    @Override
     public void run() {
         try {
             while (true) {
                 Socket socket = serverSocket.accept();
-                ServerClient serwerClient = new ServerClient(socket);
-                serwerClient.start();
-                klienci.add(serwerClient);
+                ServerClient client = new ServerClient(socket);
+                client.start();
+                klienci.add(client);
             }
-
         } catch (IOException e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
             try {
                 serverSocket.close();
-            } catch (IOException e1) {
-                e1.printStackTrace();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
-            return;
         }
-    }
 
+    }
 }
