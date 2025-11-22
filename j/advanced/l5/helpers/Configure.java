@@ -6,7 +6,7 @@ public class Configure {
     public static final int PORT = 2002;
 
     public enum RodzajWiadmosci {
-        WIADOMOSC,
+        Message,
         NOWY_KLIENT,
         ZAMKNIJ_POLACZENIE,
         PODAJ_NAZWE,

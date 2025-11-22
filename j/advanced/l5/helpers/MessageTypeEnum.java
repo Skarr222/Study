@@ -1,7 +1,7 @@
 package j.advanced.l5.helpers;
 
-public enum RodzajWiadomosciEnum {
-    wiadomosc,
+public enum MessageTypeEnum {
+    Message,
     nowyKlient,
     zamknijPolaczenie
 }

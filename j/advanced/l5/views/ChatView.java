@@ -1,6 +1,6 @@
 package j.advanced.l5.views;
 
-import j.advanced.l5.helpers.Wiadomosc;
+import j.advanced.l5.helpers.Message;
 import java.io.*;
 import java.net.Socket;
 
@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 import static j.advanced.l5.helpers.Configure.IP;
 import static j.advanced.l5.helpers.Configure.PORT;
 import static j.advanced.l5.helpers.Configure.RodzajWiadmosci.PODAJ_NAZWE;
-import static j.advanced.l5.helpers.Configure.RodzajWiadmosci.WIADOMOSC;
+import static j.advanced.l5.helpers.Configure.RodzajWiadmosci.Message;
 
 public class ChatView extends javax.swing.JPanel {
 
@@ -74,7 +74,7 @@ public class ChatView extends javax.swing.JPanel {
     }// </editor-fold>
 
     private void wyslijButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        writer.println(new Wiadomosc(WIADOMOSC, inputTextField.getText()).serializuj());
+        writer.println(new Message(Message, inputTextField.getText()).serializuj());
         inputTextField.setText("");
         System.out.println("Wysylam");
     }
@@ -98,15 +98,15 @@ public class ChatView extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Nazwa nie może być pusta!", "Błąd", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-                writer.println(new Wiadomosc(PODAJ_NAZWE, userInput).serializuj());
+                writer.println(new Message(PODAJ_NAZWE, userInput).serializuj());
 
                 while (true) {
-                    String wiadomoscString = reader.readLine();
-                    Wiadomosc wiadomosc = Wiadomosc.deserializuj(wiadomoscString);
-                    System.out.println("Klient: " + wiadomoscString);
-                    switch (wiadomosc.getRodzajWiadomosci()) {
-                        case WIADOMOSC: {
-                            jTextArea1.append(wiadomosc.getZawartosc() + "\n");
+                    String MessageString = reader.readLine();
+                    Message Message = Message.deserializuj(MessageString);
+                    System.out.println("Klient: " + MessageString);
+                    switch (Message.getRodzajMessagei()) {
+                        case Message: {
+                            jTextArea1.append(Message.getZawartosc() + "\n");
                             break;
                         }
                         default:

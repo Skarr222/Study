@@ -1,11 +1,11 @@
 package j.advanced.l5.server;
 
-import static j.advanced.l5.helpers.Configure.RodzajWiadmosci.WIADOMOSC;
+import static j.advanced.l5.helpers.Configure.RodzajWiadmosci.Message;
 
 import java.io.*;
 import java.net.Socket;
 
-import j.advanced.l5.helpers.Wiadomosc;
+import j.advanced.l5.helpers.Message;
 
 public class ServerClient extends Thread {
     Socket socket;
@@ -47,22 +47,22 @@ public class ServerClient extends Thread {
     public void run() {
         try {
             while (true) {
-                String wiadomoscString = reader.readLine();
-                Wiadomosc wiadomosc = Wiadomosc.deserializuj(wiadomoscString);
-                switch (wiadomosc.getRodzajWiadomosci()) {
-                    case WIADOMOSC: {
+                String MessageString = reader.readLine();
+                Message Message = Message.deserializuj(MessageString);
+                switch (Message.getRodzajMessagei()) {
+                    case Message: {
                         for (ServerClient klient : ChatServer.klienci) {
                             klient.getWriter().println(
-                                    new Wiadomosc(WIADOMOSC, this.nazwa + ": " + wiadomosc.getZawartosc())
+                                    new Message(Message, this.nazwa + ": " + Message.getZawartosc())
                                             .serializuj());
                         }
                         break;
                     }
                     case PODAJ_NAZWE: {
-                        this.nazwa = wiadomosc.getZawartosc();
+                        this.nazwa = Message.getZawartosc();
                         for (ServerClient klient : ChatServer.klienci) {
                             klient.getWriter().println(
-                                    new Wiadomosc(WIADOMOSC, this.nazwa + " dołączył do czatu").serializuj());
+                                    new Message(Message, this.nazwa + " dołączył do czatu").serializuj());
 
                         }
                         break;
