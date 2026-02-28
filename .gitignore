@@ -1,21 +1,23 @@
+# General
 /out/*
 *.o
 *.exe
 !out/
 /Study.iml
-/.idea/uiDesigner.xml
-/c#/helloWorld/obj
-/c#/helloWorld/obj*
-/c#/helloWorld/bin/*
+.vs/
 
-cpp/.idea/
+# IDEs
 .idea/
 .vscode/
 
-# SolutionOrdersMobile
-/SolutionOrdersMobile/node_modules/
+# C#
+/c#/helloWorld/obj/
+/c#/helloWorld/bin/
+
+# C++
+cpp/.idea/
+
+# SolutionOrdersMobile - native folders (heavy, regeneratable)
 /SolutionOrdersMobile/android/
 /SolutionOrdersMobile/ios/
 /SolutionOrdersMobile/.bundle/
-/SolutionOrdersMobile/.idea/
-/SolutionOrdersMobile/.vscode/
