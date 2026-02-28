@@ -8,6 +8,14 @@
 /c#/helloWorld/obj*
 /c#/helloWorld/bin/*
 
+cpp/.idea/
+.idea/
+.vscode/
 
-cpp/.idea
-.idea
+# SolutionOrdersMobile
+/SolutionOrdersMobile/node_modules/
+/SolutionOrdersMobile/android/
+/SolutionOrdersMobile/ios/
+/SolutionOrdersMobile/.bundle/
+/SolutionOrdersMobile/.idea/
+/SolutionOrdersMobile/.vscode/
