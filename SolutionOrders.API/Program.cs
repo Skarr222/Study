@@ -1,7 +1,7 @@
+using System.Reflection;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using SolutionOrders.API.Models.Data;
-using System.Reflection;
 
 namespace SolutionOrders.API
 {
@@ -13,10 +13,13 @@ namespace SolutionOrders.API
 
             // DbContext
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+            );
 
             // MediatR
-            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+            builder.Services.AddMediatR(cfg =>
+                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly())
+            );
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -30,7 +33,8 @@ namespace SolutionOrders.API
             {
                 try
                 {
-                    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                    var dbContext =
+                        scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
                     dbContext.Database.Migrate();
                 }
                 catch (Exception ex)
@@ -53,7 +57,6 @@ namespace SolutionOrders.API
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 

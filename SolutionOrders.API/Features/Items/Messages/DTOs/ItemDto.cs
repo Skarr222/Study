@@ -1,21 +1,17 @@
-﻿namespace SolutionOrders.API.Models
+namespace SolutionOrders.API.Features.Items.Messages.DTOs
 {
-    public class Item
+    public class ItemDto
     {
         public int IdItem { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
         public int IdCategory { get; set; }
+        public string? CategoryName { get; set; }
         public decimal? Price { get; set; }
         public decimal? Quantity { get; set; }
-        public string? FotoUrl { get; set; }
         public int? IdUnitOfMeasurement { get; set; }
+        public string? UnitName { get; set; }
         public string? Code { get; set; }
         public bool IsActive { get; set; }
-
-        // Navigation properties
-        public virtual Category Category { get; set; } = null!;
-        public virtual UnitOfMeasurement? UnitOfMeasurement { get; set; }
-        public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
     }
 }
