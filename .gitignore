@@ -11,8 +11,9 @@
 .vscode/
 
 # C#
-/c#/helloWorld/obj/
-/c#/helloWorld/bin/
+**/bin/
+**/obj/
+*.user
 
 # C++
 cpp/.idea/
@@ -21,3 +22,6 @@ cpp/.idea/
 /SolutionOrdersMobile/android/
 /SolutionOrdersMobile/ios/
 /SolutionOrdersMobile/.bundle/
+
+# SolutionOrders.API
+/SolutionOrders.API/appsettings.Development.json
