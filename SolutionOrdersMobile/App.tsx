@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import Greeting from "./src/components/Greeting";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import Counter from "./src/components/Counter";
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === "dark";
@@ -25,6 +26,7 @@ function App(): React.JSX.Element {
       >
         <Text style={styles.title}>Hello React Native!</Text>
         <Text style={styles.subtitle}>with TypeScript 🚀</Text>
+        <Counter />
         <Greeting name="Oskar" age={25} isVip={true} />
         <Greeting name="Krzysztof" age={30} isVip={false} />
         <Greeting name="Magda" age={25} isVip={true} />
